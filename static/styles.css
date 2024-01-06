@@ -1,6 +1,6 @@
 body {
-    background-color:#f77367;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
 }
 
 .main-title {
@@ -8,12 +8,16 @@ body {
     font-family: cursive;
 }
 
-.space-header {
-    color:rgb(246, 232, 255);
-    font-weight: bold;
+button {
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.space-container {
-        border: 2px solid #FCF0CC;
-        border-radius: 2px; 
+button:hover {
+    background-color: #e04348;
 }

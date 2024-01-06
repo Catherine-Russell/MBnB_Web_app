@@ -3,6 +3,8 @@
 <head>
     <title>MBnB Home Page</title>
     <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <link rel="stylesheet" type="text/css" href="static/home.css">
+
     <div class="navigation" align="right">
         {% if user_id %}
         <p><a href="/users/{{ user_id }}">My Profile</a></p>
@@ -17,19 +19,20 @@
 </head>
 <body>
     <h1 class="main-title">🏘️ MBnB</h1>
-
-    <h2>Book a Space</h2>
+    <h2>Book your next get away</h2>
     {% for space in spaces %}
-    <div class="space-container">
-        
-        <div class="space-header"><h2>{{space.name}}</h2></div>
-        <div class="space-description">{{space.description}}</div>
-        <div class="space-price">From £{{space.price}} per night!</div>
+    <div class="space-card">
+        <div class="space-details"><h2>{{space.name}}</h2>
+        <img src={{space.image_url}}>
+        <p>{{ space.area }}, {{ space.country }}</p>
+        <p>{{ space.max_guests }} guests</p>
+        <p>From £{{space.price}} per night</p>
         <br>
         {% if session_active == True %}
         <form action="/" method="POST">
             <button type="submit" name="book_now_button" value="{{space.id}}">Book Now!</button><br>
         </form>
+        </div>
         <br>
     
         {% endif %}
