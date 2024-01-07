@@ -25,24 +25,26 @@ def apply_create_space_routes(app):
         if logged_in_id != user_id:
             return render_template('error_must_log_in_first.html'), 401
         space_title = request.form['name']
+        space_area = request.form['area']
+        space_country = request.form['country']
         space_description = request.form['description']
-        print(space_description)
         space_price = request.form['price_per_night']
-        print(space_price)
+        space_max_guests = request.form['max_guests']
         new_space_id = space_repository.create(Space(
                 id = None, 
                 name = space_title,
+                area = space_area,
+                country = space_country,
                 description = space_description,
                 price = float(space_price),
-                host_id = user_id
+                host_id = user_id,
+                max_guests = space_max_guests,
+                image_url = 'static/images/defaultHouse.jpeg'
                 ))
 
         booking_repository = BookingRepository(connection)
         unavailable_start_date = request.form['first_available_night']
         unavailable_end_date = request.form['last_available_night']
-
-        print(unavailable_start_date)
-        print(unavailable_end_date)
         
         unavailable_start_date = datetime(2023,10,20)
         unavailable_end_date = datetime(2023,10,25)
