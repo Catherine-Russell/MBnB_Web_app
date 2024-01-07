@@ -1,48 +1,22 @@
-# Mbnb | AirBnb CLone Project
-![demo image](static/screen1.png)
+# Mbnb | Personal Extension from AirBnb Clone Group Project
+![demo image](readme_images/DemoImage.png)
 
-## Table of Contents
+## Contents
 
-- [Description](#description)
-- [My Extension]()
+- [Project Description](#project-description)
 - [Demo](#demo)
-- [What I Learned](#what-i-learned)
-- [Getting Started](#getting-started)
 - [Features](#features)
+- [Key Areas of Learning](#key-areas-of-learning)
+- [How to Run the Application](#how-to-run-the-application)
 - [Contributors](#contributors)
 
-# MakersBnB Python Project - Personal Extension
+# Project Description
 
-This is my person extension project for the Makersbnb Python/Flask project, made on Makers Academy's Software Engineering bootcamp.
+This is my personal extension for the Makersbnb Python/Flask project.
 
-This original group project primarily focused on our backend. For my extension, I wanted to practice using HTML and CSS to replicate a simplified version of the Airbnb UI.
+As the first group project of the Software Engineering bootcamp, the project aims were to develop both technical skills and learn to use the developer workflow to plan, implement and peer-review features. The original project was created over one week through TTD, OOP, and Agile practices (pair programming, Trello boards, etc.). 
 
-# WIP Updates:
-
-![New Homepage](./readme_images/8487lo.gif)
-
-**29 October**
-
-- Adds new homepage with self-made 'makersbnb' logo and transition background. I aim to adhere as much as possible to the 2014 Airbnb rebrand. All background images are stock images. All subsequent page designs will follow suit.
-
-![New Homepage static](./readme_images/Screenshot%202023-10-29%20at%2016.53.53.png)
-
-
-# Original Project README:
-
-[Link to group project](https://github.com/clairep94/makers_project_airbnb_clone)
-
-This is the first group project on Makers Academy's Software Engineering bootcamp.
-This is a barebones crud app for Airbnb, created over one week through TTD, OOP, and Agile practices (pair programming, Kanban boards, etc.).
-
-Original roject by Catherine Russell, Perran Thomas and Joseph.
-
-The project aims were as follows:
-
-* Learn to work and communicate effectively as part of a team to build a web application.
-* Learn to break down projects into tasks and assign them to pairs.
-* Learn to use agile ceremonies to organise your work and improve your processes.
-* Learn to use the developer workflow to plan, implement and peer-review features.
+This original group project primarily focused on our backend. For my extension, I wanted develop my HTML and CSS skills make it more visually appealing and closer resemble the AirBnB website.
 
 Tech used:
 
@@ -51,23 +25,13 @@ Tech used:
 * Playwright, Pytest
 * Git, Github
 
-## Getting Started
+[Link to original group project](https://github.com/jmiller84/bnb_team_2.git)
 
-To run this application on your local machine, you'll need to install the necessary dependencies and configure your environment. Here's a step-by-step guide:
+# Demo
 
-1. Clone the repository: `git clone <repository_url>`
-2. Install the required Python packages: `pip install -r requirements.txt`
-3. Set up your database and make any necessary configuration changes in the `config.py` file.
-4. Start the Flask application: `python3 app.py`
+# Features
 
-Your Airbnb clone should now be accessible at `http://localhost:5000` in your web browser.
-
-## Project Specification:
-
-We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
-
-### Headline specifications (provided in project brief)
-
+Project Specification:
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
 - Users should be able to name their space, provide a short description of the space, and a price per night.
@@ -76,10 +40,35 @@ We would like a web application that allows users to list spaces they have avail
 - Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
-## Planning:
+# Future Planned Features:
+- Page where users can view the spaces that they host and check the bookings for each one
+- Users can upload their own photo of their space
 
-ER Diagram for simple Makersbnb relational database:
-![ER Diagram](./readme_images/makersbnb_er_diagram.png)
+## Key Areas of Learning
 
-UI Mockups (provided in project brief):
-![UI Mockup](./readme_images/MakersBnB_mockups.jpg)
+- **Web Development**: I developed my skills with HTML templates and CSS to create a pleasant user experience.
+
+- **Database Management**: PostgreSQL configuration and queries.
+
+- **Session Management**: The project  used session management with Flask authenticate and log users in and out. The UI changed accordingly, depending on whether there was an active session.
+
+- **Teamwork and Collaboration**: I gained valuable experience working with a group, using agile workflow, collaborative coding and version control using tools like Git.
+
+- **Time Management**: As it was a very quick turnaround, we learned strategies to best manage our time to successfully reach MVP by the deadline.
+
+## How to Run the Application
+
+To run this application on your local machine, you will need to install the necessary dependencies and configure your environment. Here's a step-by-step guide:
+
+1. Clone the repository: `git clone <repository_url>`
+2. Install the required Python packages: `pip install -r requirements.txt`
+3. Set up your database and make any necessary configuration changes in the `config.py` file.
+4. Start the Flask application: `python3 app.py`
+
+'Mbnb' should now be accessible at `http://localhost:5000` in your web browser!
+
+
+## Original Contributors:
+[Perran Thomas](https://github.com/capatult)
+[Joseph Miller](https://github.com/jmiller84)
+[Antonia Callisto](https://github.com/ToniaCodes)
