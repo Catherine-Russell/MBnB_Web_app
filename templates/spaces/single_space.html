@@ -4,6 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../static/styles.css">
     <link rel="stylesheet" type="text/css" href="../../static/single_space.css">
+    <script>
+        function redirectToHome() {
+            window.location.href = '/';
+        }
+        </script>
     <title>Make a booking</title>
 </head>
 <body>
@@ -54,7 +59,8 @@
             </table>
         </div>
         
-    </div>
+        <button class="cancel-button" name="cancel_button" value="Cancel" onclick="redirectToHome()">Cancel</button>
         
+    </div>
     </body>
     </html>
