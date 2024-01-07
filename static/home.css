@@ -5,11 +5,19 @@ body {
     background-color: #f0f0f0;
     
 }
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 20px;
+}
 .spaces-container {
     width: 100%;
     overflow-x: scroll;
     display: inline-block;
+    align-items:center;
 }
+
 .space-card {
     overflow-x: scroll;
     display: inline-block;
@@ -21,6 +29,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow:hidden;
     text-align: center;
+    padding: 10px;
+
 }
 
 .space-card img {
