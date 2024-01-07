@@ -31,10 +31,12 @@
 
     </head>
     <body>
+        <h1 class="page-title">{{username}}'s Page</h1>
         {% if user_id == logged_in_id %}
         
         <div class="user-bookings">
             <h1>Your upcoming bookings</h1>
+            {% if bookings|length > 0 %}
             {% for booking in bookings %}
             <div class="booking-list">
                 Booking reference #00000{{booking["booking_id"]}}<br>
@@ -47,6 +49,9 @@
             </div>
             <br>
             {% endfor %}
+            {% else %}
+            <p>You currently have no bookings <a href="/">Find somewhere to stay!</a></p>
+            {% endif %}
         </div>
         
         <div class="user-requests">
@@ -69,7 +74,7 @@
             <p>You currently have no pending requests</p>
             {% endif %}
             <div class="new-listing-container">
-                <a href="/users/{{user_id}}/create_space">Register a new place for guests to stay</a>
+                <a href="/users/{{user_id}}/create_space">Register a new space for guests to stay</a>
             </div>
         </div>
         {% else %}

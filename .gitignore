@@ -4,3 +4,5 @@ __pycache__
 screenshot.png
 flask_secret_key
 config.py
+readme_images/.DS_Store
+.DS_Store

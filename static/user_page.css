@@ -1,3 +1,9 @@
+.page-title {
+  font-size: 250%;
+  text-align: center;
+
+}
+
 .user-bookings,
 .user-requests {
     margin: 20px auto;

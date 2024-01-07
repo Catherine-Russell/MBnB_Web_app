@@ -76,3 +76,19 @@ p {
 .unavailable_day {
     color: #aaa;
 }
+
+.cancel-button {
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.cancel-button:hover {
+    background-color: #e04348;
+}

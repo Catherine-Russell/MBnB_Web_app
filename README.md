@@ -28,6 +28,7 @@ Tech used:
 [Link to original group project](https://github.com/jmiller84/bnb_team_2.git)
 
 # Demo
+![Demo_Gif](readme_images/demo_gif.gif)
 
 # Features
 
