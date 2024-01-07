@@ -14,7 +14,7 @@
 
 This is my personal extension for the Makersbnb Python/Flask project.
 
-As the first group project of the Software Engineering bootcamp, the project aims were to develop both technical skills and learn to use the developer workflow to plan, implement and peer-review features. The original project was created over one week through TTD, OOP, and Agile practices (pair programming, Trello boards, etc.). 
+As the first group project of the bootcamp, the aims were to both develop technical skills and to use the developer workflow to plan, implement and peer-review features. The original project was created over one week through TTD, OOP, and Agile practices (pair programming, Trello boards, etc.). 
 
 This original group project primarily focused on our backend. For my extension, I wanted develop my HTML and CSS skills make it more visually appealing and closer resemble the AirBnB website.
 
@@ -30,10 +30,9 @@ Tech used:
 # Demo
 ![Demo_Gif](readme_images/demo_gif.gif)
 
-
 # Features
 
-Project Specification:
+Project Specification (taken from original project outline):
 - Any signed-up user can list a new space.
 - Users can list multiple spaces.
 - Users should be able to name their space, provide a short description of the space, and a price per night.
@@ -42,11 +41,11 @@ Project Specification:
 - Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
-# Future Planned Features:
+## Future Planned Features:
 - Page where users can view the spaces that they host and check the bookings for each one
 - Users can upload their own photo of their space
 
-## Key Areas of Learning
+# Key Areas of Learning
 
 - **Web Development**: I developed my skills with HTML templates and CSS to create a pleasant user experience.
 
@@ -71,6 +70,6 @@ To run this application on your local machine, you will need to install the nece
 
 
 ## Original Contributors:
-[Perran Thomas](https://github.com/capatult)
-[Joseph Miller](https://github.com/jmiller84)
-[Antonia Callisto](https://github.com/ToniaCodes)
+- [Perran Thomas](https://github.com/capatult)
+- [Joseph Miller](https://github.com/jmiller84)
+- [Antonia Callisto](https://github.com/ToniaCodes)
