@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MBnB Home Page</title>
+    <title>Mbnb Home Page</title>
     <link rel="stylesheet" type="text/css" href="static/styles.css">
-    <div class="navigation" align="right">
-        {% if user_id %}
-        <p><a href="/users/{{ user_id }}">My Profile</a></p>
-        <p><a href="/logout">Logout</a></p>
-        {% else %}
-        <p><a href="/login">Login</a></p>
-        <p><a href="/signup">Create an account</a></p>
-        {% endif %}
-    </div>
+    <link rel="stylesheet" type="text/css" href="static/home.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1 class="main-title">🏘️ MBnB</h1>
+    
+    <div class="header">
+        <img src="/static/images/logo.jpeg" class="logo">
+        <h1 class="main-title">Mbnb</h1>
+        <div class="navigation" align="right">
+            {% if user_id %}
+                <a href="/users/{{ user_id }}" class="profile-link">My Profile</a>
+                <a href="/logout" class="logout-link">Logout</a>
+            {% else %}
+                <a href="/login" class="login-link">Login</a>
+                <a href="/signup" class="signup-link">Create an account</a>
+            {% endif %}
+        </div>
+    </div>
+    {% if session_active == True %}
+    <h2 align="center" class="subtitle">Book your next getaway!</h2>
+    {% else %}
+    <h2 align="center" class="subtitle">Log in to book your next getaway</h2>
+    {% endif %}
 
-    <h2>Book a Space</h2>
     {% for space in spaces %}
-    <div class="space-container">
-        
-        <div class="space-header"><h2>{{space.name}}</h2></div>
-        <div class="space-description">{{space.description}}</div>
-        <div class="space-price">From £{{space.price}} per night!</div>
+    <div class="space-card">
+        <div class="space-details"><h2>{{space.name}}</h2>
+        <img src={{space.image_url}}>
+        <p>{{ space.area }}, {{ space.country }}</p>
+        <p>{{ space.max_guests }} guests</p>
+        <p>From £{{space.price}} per night</p>
         <br>
         {% if session_active == True %}
         <form action="/" method="POST">
             <button type="submit" name="book_now_button" value="{{space.id}}">Book Now!</button><br>
         </form>
+        </div>
         <br>
     
         {% endif %}

@@ -3,6 +3,9 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/user_page.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+
     <title>
         {% if user_id == logged_in_id %}
             My page
@@ -11,46 +14,66 @@
         {% endif %}
         : {{username}}
     </title>
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
-    <p><a href="/">See More Spaces and Make a New Booking!</a></p>
+    <div class="header">
+        <img src="/static/images/logo.jpeg" class="logo">
+        <h1 class="main-title">Mbnb</h1>
+        
+        <div class="navigation" align="right">
+            {% if user_id %}
+            <a href="/" >Discover Spaces</a>
+            <a href="/logout" class="logout-link">Logout</a>
+            {% else %}
+            <a href="/login" class="login-link">Login</a>
+            <a href="/signup" class="signup-link">Create an account</a>
+            {% endif %}
+        </div>
+    </div>
 
     </head>
     <body>
         {% if user_id == logged_in_id %}
-        <a href="/users/{{user_id}}/create_space">List a new space</a>
-        <h1>{{username}}'s Bookings for upcoming holidays</h1>
-
+        
         <div class="user-bookings">
+            <h1>Your upcoming bookings</h1>
             {% for booking in bookings %}
-            <li class="booking-list">
-                Booking #{{booking["booking_id"]}}<br>
-                You're staying at {{booking["space_name"]}} on {{booking["booking_date"]}}<br>
-                Request confirmed = {{booking["confirmed"]}}
-            </li>
+            <div class="booking-list">
+                Booking reference #00000{{booking["booking_id"]}}<br>
+                You're staying at the {{booking["space_name"]}} on {{booking["booking_date"]}}<br>
+                {% if booking["confirmed"] == True %}
+                <p class='confimed-booking'>Your booking is confirmed!</p>
+                {% else %}
+                <p class='pending-booking'>This booking is pending confirmation from the host</p>
+                {% endif %}
+            </div>
             <br>
             {% endfor %}
         </div>
-        <h1> Requests for your spaces </h1>
-
+        
         <div class="user-requests">
-            {% for request in booking_requests %}
-            <div class="request-list">
-                Booking #{{request['booking_id']}}<br>
-                You have a request for {{request['name']}} on {{request.date}}
-
-            <form action="/users/{{user_id}}" method="POST">
-                <button type="submit" name="confirm-booking" value="{{request['booking_id']}}">Confirm Booking</button>
-            </form>
-
-            <form action="/users/{{user_id}}" method="POST">
-                <button type="submit" name="reject-booking" value="{{request['booking_id']}}">Reject Booking</button>
-            </form>
-
+            <h1> Requests for your spaces </h1>
+            {% if booking_requests|length > 0 %}
+                {% for request in booking_requests %}
+                <div class="request-list">
+                    Booking reference #00000{{request['booking_id']}}<br>
+                    You have a request for {{request['name']}} on {{request.date}}
+                    
+                    <form action="/users/{{user_id}}" method="POST">
+                        <button type="submit" name="confirm-booking" value="{{request['booking_id']}}">Confirm Booking</button>
+                    </form> <form action="/users/{{user_id}}" method="POST">
+                        <button type="submit" name="reject-booking" value="{{request['booking_id']}}">Reject Booking</button>
+                    </form>
+                    
+                </div>
+                {% endfor %}
+            {% else %}
+            <p>You currently have no pending requests</p>
+            {% endif %}
+            <div class="new-listing-container">
+                <a href="/users/{{user_id}}/create_space">Register a new place for guests to stay</a>
             </div>
-            {% endfor %}
         </div>
         {% else %}
         <h1>{{ username }}'s page</h1>
         {% endif %}
     </body>
-</html>
+    </html>

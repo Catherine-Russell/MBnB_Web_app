@@ -1,0 +1,41 @@
+.user-bookings,
+.user-requests {
+    margin: 20px auto;
+    max-width: 800px; 
+}
+
+.booking-list,
+.request-list {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.confirmed-booking {
+  color: #23b345;
+}
+
+.pending-booking {
+  color: #ffc107;
+}
+
+.request-list form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.request-list button {
+  margin-right: 10px;
+  background-color: #ff5a5f;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.request-list button:hover {
+  background-color: #e04348;
+}

@@ -5,64 +5,106 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>List a new space on MBnB</title>
         <link rel="stylesheet" type="text/css" href="../../static/styles.css">
+        <link rel="stylesheet" type="text/css" href="../../static/create_space.css">
     </head>
     <body>
-        <p><a href="/">Back to homepage</a></p>
+
+        <div class="header">
+            <img src="/static/images/logo.jpeg" class="logo">
+            <h1 class="main-title">Mbnb</h1>
+            <div class="navigation" align="right">
+                {% if user_id %}
+                    <a href="/users/{{ user_id }}" class="profile-link">My Profile</a>
+                    <a href="/logout" class="logout-link">Logout</a>
+                {% else %}
+                    <a href="/login" class="login-link">Login</a>
+                    <a href="/signup" class="signup-link">Create an account</a>
+                {% endif %}
+            </div>
+        </div>
+
+
         {% if not user_is_logged_in %}
-            <p data-testid="already-logged-in-message">
-                Please log in first before listing a new space.
-            </p>
+        <p data-testid="already-logged-in-message">
+            Please log in first before listing a new space.
+        </p>
         {% else %}
-            <h1>Enter details for the new space</h1>
+
+        <div class="form-container">
+
+            <h1>Please enter the details of your listing</h1>
             <form action="/users/{{ user_id }}/create_space" method="post">
                 {% if errors %}
-                    <p data-testid="error-details">
-                        Your signup submission had the following errors:
-                    </p>
-                    <p><ul>
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul></p>
+                <p data-testid="error-details">
+                    Your signup submission had the following errors:
+                </p>
+                <p><ul>
+                    {% for error in errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul></p>
                 {% endif %}
                 <p>
-                    <label for="name">Name: </label>
+                    <label for="name">Title of your listing: </label>
                     <input
-                        type="text" name="name"
-                        id="name" data-testid="name"
+                    type="text" name="name"
+                    id="name" data-testid="name"
+                    >
+                </p>
+                <p>
+                    <label for="area">Area: </label>
+                    <input
+                    type="text" name="area"
+                    id="area" data-testid="area"
+                    >
+                    
+                    <label for="country">Country: </label>
+                    <input
+                    type="text" name="country"
+                    id="country" data-testid="country"
                     >
                 </p>
                 <p>
                     <label for="description">Description: </label>
                     <input
-                        type="text" name="description"
-                        id="description" data-testid="description"
+                    type="text" name="description"
+                    id="description" data-testid="description"
+                    >
+                </p>
+                <p>
+                    <label for="max_guests">What is the maximum number of guests?: </label>
+                    <input
+                    type="number" name="max_guests"
+                    id="max_guests" data-testid="max_guests"
                     >
                 </p>
                 <p>
                     <label for="price_per_night">Price per night: </label>
                     <input
-                        type="number" name="price_per_night"
-                        id="price_per_night" data-testid="price_per_night"
+                    type="number" name="price_per_night"
+                    id="price_per_night" data-testid="price_per_night"
+                    >
+                </p>
+                <p>What dates is your property unavailable for guests to book?</p>
+                <p>
+                    <label for="first_available_night">From: </label>
+                    <input
+                    type="date" name="first_available_night" min="{{ current_date }}"
+                    id="first_available_night" data-testid="first_available_night"
                     >
                 </p>
                 <p>
-                    <label for="first_available_night">First unavailable night: </label>
+                    <label for="last_available_night">Until: </label>
                     <input
-                        type="date" name="first_available_night" min="{{ current_date }}"
-                        id="first_available_night" data-testid="first_available_night"
-                    >
-                </p>
-                <p>
-                    <label for="last_available_night">Last unavailable night: </label>
-                    <input
-                        type="date" name="last_available_night" min="{{ current_date }}"
-                        id="last_available_night" data-testid="last_available_night"
+                    type="date" name="last_available_night" min="{{ current_date }}"
+                    id="last_available_night" data-testid="last_available_night"
                     >
                 </p>
                 <p>
                     <input type="submit" value="Submit form">
-            </form>
-        {% endif %}
-    </body>
-</html>
+                </form>
+                <p><a href="/" class="cancel-button">Cancel</a></p>
+                {% endif %}
+            </div>
+            </body>
+            </html>

@@ -4,17 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirm Booking</title>
     <link rel="stylesheet" type="text/css" href="../../static/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../static/confirm_booking.css">
+
 </head>
 <body>
-
-    <h2>Confirm Booking</h2>
     
-    <p>Booking details:</p>
-    <p>Proeprty: {{ space_info.name }}</p>
-    <p>Date: {{ formatted_date }}</p>
+    <div class="header">
+        <img src="/static/images/logo.jpeg" class="logo">
+        <h1 class="main-title">Mbnb</h1>
+        <div class="navigation" align="right">
+            {% if user_id %}
+                <a href="/users/{{ user_id }}" class="profile-link">My Profile</a>
+                <a href="/logout" class="logout-link">Logout</a>
+            {% else %}
+                <a href="/login" class="login-link">Login</a>
+                <a href="/signup" class="signup-link">Create an account</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <h2>You are requesting to book {{space_info.name}} on {{ formatted_date }}. Is this correct?</h2>
 
     <form action='/spaces/{{space_info.id}}/confirm'method="POST">
-        <input type="submit" name="confirm_button" value="Request">
+        <input type="submit" name="confirm_button" value="Confirm Booking Request">
     </form>
 
     <form action='/spaces/{{space_info.id}}/confirm' method="POST">
