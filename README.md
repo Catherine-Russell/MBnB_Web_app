@@ -1,69 +1,75 @@
-# Flask HTML Web & Database Project Starter
+# Mbnb | Personal Extension from AirBnb Clone Group Project
+![demo image](readme_images/DemoImage.png)
 
-This is a starter project for you to use to start your Flask HTML web & database
-projects.
+## Contents
 
-It contains quite a lot of example code. You can use this to see how the various
-parts of the project work, or you can delete it and start from scratch.
+- [Project Description](#project-description)
+- [Demo](#demo)
+- [Features](#features)
+- [Key Areas of Learning](#key-areas-of-learning)
+- [How to Run the Application](#how-to-run-the-application)
+- [Contributors](#contributors)
 
-There are two videos to support:
+# Project Description
 
-* [A demonstration of setting up the project](https://www.youtube.com/watch?v=YStsRfMVx44&t=0s)
-* [A walkthrough of the project codebase](https://www.youtube.com/watch?v=YStsRfMVx44&t=314s) 
+This is my personal extension for the Makersbnb Python/Flask project.
 
-## Setup
+As the first group project of the Software Engineering bootcamp, the project aims were to develop both technical skills and learn to use the developer workflow to plan, implement and peer-review features. The original project was created over one week through TTD, OOP, and Agile practices (pair programming, Trello boards, etc.). 
 
-```shell
-# Clone the repository to your local machine
-; git clone git@github.com:makersacademy/web-applications-in-python-project-starter-html.git YOUR_PROJECT_NAME
+This original group project primarily focused on our backend. For my extension, I wanted develop my HTML and CSS skills make it more visually appealing and closer resemble the AirBnB website.
 
-# Or, if you don't have SSH keys set up
-; git clone https://github.com/makersacademy/web-applications-in-python-project-starter-html.git YOUR_PROJECT_NAME
+Tech used:
 
-# Enter the directory
-; cd YOUR_PROJECT_NAME
+* Python, Flask
+* psycopg, PostgreSQL
+* Playwright, Pytest
+* Git, Github
 
-# Install dependencies and set up the virtual environment
-; pipenv install
+[Link to original group project](https://github.com/jmiller84/bnb_team_2.git)
 
-# Activate the virtual environment
-; pipenv shell
+# Demo
+![]
 
-# Install the virtual browser we will use for testing
-; playwright install
-# If you have problems with the above, contact your coach
+# Features
 
-# Create a test and development database
-; createdb YOUR_PROJECT_NAME
-; createdb YOUR_PROJECT_NAME_test
+Project Specification:
+- Any signed-up user can list a new space.
+- Users can list multiple spaces.
+- Users should be able to name their space, provide a short description of the space, and a price per night.
+- Users should be able to offer a range of dates where their space is available.
+- Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
+- Nights for which a space has already been booked should not be available for users to book that space.
+- Until a user has confirmed a booking request, that space can still be booked for that night.
 
-# Open lib/database_connection.py and change the database names
-; open lib/database_connection.py
+# Future Planned Features:
+- Page where users can view the spaces that they host and check the bookings for each one
+- Users can upload their own photo of their space
 
-# Seed the development database (ensure you have run `pipenv shell` first)
-; python seed_dev_database.py
+## Key Areas of Learning
 
-# Run the tests (with extra logging)
-; pytest -sv
+- **Web Development**: I developed my skills with HTML templates and CSS to create a pleasant user experience.
 
-# Run the app
-; python app.py
-# Now visit http://localhost:5001/emoji in your browser
-```
+- **Database Management**: PostgreSQL configuration and queries.
 
-If you would like to remove the example code:
+- **Session Management**: The project  used session management with Flask authenticate and log users in and out. The UI changed accordingly, depending on whether there was an active session.
 
-```shell
-; ./remove_example_code.sh
-```
+- **Teamwork and Collaboration**: I gained valuable experience working with a group, using agile workflow, collaborative coding and version control using tools like Git.
+
+- **Time Management**: As it was a very quick turnaround, we learned strategies to best manage our time to successfully reach MVP by the deadline.
+
+## How to Run the Application
+
+To run this application on your local machine, you will need to install the necessary dependencies and configure your environment. Here's a step-by-step guide:
+
+1. Clone the repository: `git clone <repository_url>`
+2. Install the required Python packages: `pip install -r requirements.txt`
+3. Set up your database and make any necessary configuration changes in the `config.py` file.
+4. Start the Flask application: `python3 app.py`
+
+'Mbnb' should now be accessible at `http://localhost:5000` in your web browser!
 
 
-<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
-
----
-
-**How was this resource?**  
-[😫](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications-in-python-project-starter-html&prefill_File=README.md&prefill_Sentiment=😫) [😕](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications-in-python-project-starter-html&prefill_File=README.md&prefill_Sentiment=😕) [😐](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications-in-python-project-starter-html&prefill_File=README.md&prefill_Sentiment=😐) [🙂](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications-in-python-project-starter-html&prefill_File=README.md&prefill_Sentiment=🙂) [😀](https://airtable.com/shrUJ3t7KLMqVRFKR?prefill_Repository=makersacademy%2Fweb-applications-in-python-project-starter-html&prefill_File=README.md&prefill_Sentiment=😀)  
-Click an emoji to tell us.
-
-<!-- END GENERATED SECTION DO NOT EDIT -->
+## Original Contributors:
+[Perran Thomas](https://github.com/capatult)
+[Joseph Miller](https://github.com/jmiller84)
+[Antonia Callisto](https://github.com/ToniaCodes)

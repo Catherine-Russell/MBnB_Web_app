@@ -61,7 +61,7 @@ def apply_signup_routes(app):
             # Auto-login to the newly created account
             session['user_id'] = new_user.id
             session['username'] = new_user.username
-            return redirect(f"/users/{session['user_id']}")
+            return redirect(f"/")
         return render_template(
             'signup.html',
             errors=error_messages

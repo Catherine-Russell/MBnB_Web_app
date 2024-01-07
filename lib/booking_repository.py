@@ -12,6 +12,7 @@ class BookingRepository:
     
     def create(self, booking):
         self._connection.execute("INSERT INTO bookings (user_id, space_id, date, confirmed) VALUES (%s, %s, %s, False)", [booking.user_id, booking.space_id, booking.date])
+        return 'booking created'
     
     def find_by_user_id(self, user_id):
         rows = self._connection.execute("SELECT * FROM BOOKINGS WHERE user_id = %s", [user_id])

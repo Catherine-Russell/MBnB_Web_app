@@ -12,13 +12,13 @@ def test_all_method_shows_all_bookings(db_connection):
     db_connection.seed("seeds/MBnB.sql")
     repository = BookingRepository(db_connection)
     assert repository.all() == [
-        Booking(1, 1, 1, date(2023,10,30), True),
-        Booking(2, 2, 1, date(2023,10,25), True),
-        Booking(3, 2, 3, date(2023,10,10), True),
-        Booking(4, 3, 1, date(2023,10,6), False),
-        Booking(5, 1, 2, date(2023,10,7), False),
-        Booking(6, 4, 2, date(2023,10,15), False),
-        Booking(7, 4, 3, date(2023,10,12), False)
+        Booking(1, 1, 1, date(2024,1,30), True),
+        Booking(2, 2, 1, date(2024,1,25), True),
+        Booking(3, 2, 3, date(2024,1,10), True),
+        Booking(4, 3, 1, date(2024,1,6), False),
+        Booking(5, 1, 2, date(2024,1,7), False),
+        Booking(6, 4, 2, date(2024,1,15), False),
+        Booking(7, 4, 3, date(2024,1,12), False),
         ]
 
 """
@@ -27,17 +27,17 @@ When we create a new booking we see the booking listed in the list of bookings
 def test_create_new_booking(db_connection):
     db_connection.seed("seeds/MBnB.sql")
     repository = BookingRepository(db_connection)
-    new_booking = Booking(None, 1, 3, date(2023,10,27))
+    new_booking = Booking(None, 1, 3, date(2024,1,27))
     repository.create(new_booking)
     assert repository.all() == [
-        Booking(1, 1, 1, date(2023,10,30), True),
-        Booking(2, 2, 1, date(2023,10,25), True),
-        Booking(3, 2, 3, date(2023,10,10), True),
-        Booking(4, 3, 1, date(2023,10,6), False),
-        Booking(5, 1, 2, date(2023,10,7), False),
-        Booking(6, 4, 2, date(2023,10,15), False),
-        Booking(7, 4, 3, date(2023,10,12), False),
-        Booking(8, 1, 3, date(2023,10,27), False)
+        Booking(1, 1, 1, date(2024,1,30), True),
+        Booking(2, 2, 1, date(2024,1,25), True),
+        Booking(3, 2, 3, date(2024,1,10), True),
+        Booking(4, 3, 1, date(2024,1,6), False),
+        Booking(5, 1, 2, date(2024,1,7), False),
+        Booking(6, 4, 2, date(2024,1,15), False),
+        Booking(7, 4, 3, date(2024,1,12), False),
+        Booking(8, 1, 3, date(2024,1,27), False)
     ]
 
 """
@@ -48,8 +48,8 @@ def test_find_by_user_id(db_connection):
     repository = BookingRepository(db_connection)
     user_bookings = repository.find_by_user_id(2)
     assert user_bookings == [
-        Booking(2, 2, 1, date(2023,10,25), True),
-        Booking(3, 2, 3, date(2023,10,10), True)
+        Booking(2, 2, 1, date(2024,1,25), True),
+        Booking(3, 2, 3, date(2024,1,10), True)
     ]
 
 """
@@ -60,8 +60,8 @@ def test_find_by_space_id(db_connection):
     repository = BookingRepository(db_connection)
     space_bookings = repository.find_by_space_id(2)
     assert space_bookings == [
-        Booking(5, 1, 2, date(2023,10,7), False),
-        Booking(6, 4, 2, date(2023,10,15), False)
+        Booking(5, 1, 2, date(2024,1,7), False),
+        Booking(6, 4, 2, date(2024,1,15), False)
     ]
 
 """
@@ -71,7 +71,7 @@ def test_list_unavailable_dates_for_space(db_connection):
     db_connection.seed("seeds/MBnB.sql")
     repository = BookingRepository(db_connection)
     unavailable_dates = repository.show_unavailable_dates_for_space(1)
-    assert unavailable_dates == [date(2023,10,30), date(2023,10,25), date(2023,10,6)]
+    assert unavailable_dates == [date(2024,1,30), date(2024,1,25), date(2024,1,6)]
 
 """
 when we call delete, it deletes a booking by booking id
@@ -81,12 +81,12 @@ def test_delete_by_booking_id(db_connection):
     repository = BookingRepository(db_connection)
     repository.delete(4)
     assert repository.all() == [
-        Booking(1, 1, 1, date(2023,10,30), True),
-        Booking(2, 2, 1, date(2023,10,25), True),
-        Booking(3, 2, 3, date(2023,10,10), True),
-        Booking(5, 1, 2, date(2023,10,7), False),
-        Booking(6, 4, 2, date(2023,10,15), False),
-        Booking(7, 4, 3, date(2023,10,12), False),
+        Booking(1, 1, 1, date(2024,1,30), True),
+        Booking(2, 2, 1, date(2024,1,25), True),
+        Booking(3, 2, 3, date(2024,1,10), True),
+        Booking(5, 1, 2, date(2024,1,7), False),
+        Booking(6, 4, 2, date(2024,1,15), False),
+        Booking(7, 4, 3, date(2024,1,12), False),
 
     ]
     

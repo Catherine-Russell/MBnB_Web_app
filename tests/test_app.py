@@ -6,31 +6,26 @@ def test_homepage_loads_correctly_when_logged_out(page, test_web_address, db_con
     db_connection.seed("seeds/MBnB.sql")
     page.goto(f"http://{test_web_address}/")
     heading_tag = page.locator("h1")
-    expect(heading_tag).to_have_text("🏘️ MBnB")
+    expect(heading_tag).to_have_text("Mbnb")
 
-    space_headers = page.locator(".space-header")
+    space_headers = page.locator(".space-card h2")
+    print(space_headers)
     expect(space_headers).to_have_text([
-        "Cottage",
-        "Villa",
+        "Mediterranean Villa",
+        "English Cottage",
         "Alpine lodge",
         "Studio Apartment",
-        "Tent"
+        "Tent",
+        "Bamboo Cabin"
     ])
 
-    space_descriptions = page.locator(".space-description")
-    expect(space_descriptions).to_have_text([
-        "A nice cottage",
-        "A mediterranean villa with a sea view",
-        "A cosy ski lodge with wood-burning fire",
-        "A cool apartment in the centre of the bustling city",
-        "A 5 metre, cotton canvas bell tent which can comfortably accommodate up to 4 people with any combination of single beds or double bed, duvets and pillows with linen, rugs, blankets, cushions, lighting, side tables, seating and plants."
-    ])
-
-    space_prices = page.locator(".space-price")
+    space_prices = page.locator(".space-card .space-price")
+    print(space_prices)
     expect(space_prices).to_have_text([
-        "From £27 per night!",
-        "From £70 per night!",
-        "From £95 per night!",
-        "From £102 per night!",
-        "From £50 per night!"
+        "From £281 per night",
+        "From £150 per night",
+        "From £105 per night",
+        "From £197 per night",
+        "From £75 per night",
+        "From £230 per night"
     ])

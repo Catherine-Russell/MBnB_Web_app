@@ -30,7 +30,6 @@ def apply_confirm_booking_routes(app):
 
             date = session.get('selected_date', None)
             date = datetime.strptime(date, "%a, %d %b %Y %H:%M:%S %Z")
-
             repository.create(Booking(
                 id = None,
                 user_id = session.get('user_id', None),
