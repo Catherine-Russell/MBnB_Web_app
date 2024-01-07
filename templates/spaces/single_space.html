@@ -3,47 +3,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../static/styles.css">
-    <title>Calendar</title>
+    <link rel="stylesheet" type="text/css" href="../../static/single_space.css">
+    <title>Make a booking</title>
 </head>
 <body>
-    <p><a href="/">Back to homepage</a></p>
-    <h2>{{ space_info.name }}</h2>
-    <br>
-    <div>
-        <p>{{ space_info.description }}</p>
-    </div>
-    <br>
+    <div class="header">
+        <img src="/static/images/logo.jpeg" class="logo">
+        <h1 class="main-title">Mbnb</h1>
+        <div class="navigation" align="right">
+                <a href="/users/{{ user_id }}" class="profile-link">My Profile</a>
+                <a href="/" >See more Spaces</a>
 
-    <div class="cal_table_container">
-        <table border="0" cellpadding="0" cellspacing="0" class="cal_table_format">
-            <tr><th colspan="7" class="cal_table_header">{{ str_month }}{{ current_year }}</th></tr>
-            <tr><th class="cal_table_day_headings">Mon</th><th class="cal_table_day_headings">Tue</th><th class="cal_table_day_headings">Wed</th><th class="cal_table_day_headings">Thu</th><th class="cal_table_day_headings">Fri</th><th class="cal_table_day_headings">Sat</th><th class="cal_table_day_headings">Sun</th></tr>
+                <a href="/logout" class="logout-link">Logout</a>
+        </div>
+    </div>
+
+
+    <div class="listing-info-container">
+        <h2>{{ space_info.name }}</h2>
+        <img src=../{{space_info.image_url}} class="image">
+        <p>Located in {{space_info.area}}, {{space_info.country}}</p>
+        <p>Accommodates up to {{space_info.max_guests}} guests</p>
+        <p class="description">{{ space_info.description }}</p>
+        <br>
         
-            {% for week in cal %}
-            <tr>
-                {% for day in week %}
+        <div class="cal_table_container">
+            <h2>Select your dates</h2>
+            <table border="0" cellpadding="0" cellspacing="0" class="cal-table-format">
+                <tr><th colspan="7" class="cal_table_header">{{ str_month }} {{ current_year }}</th></tr>
+                <tr><th class="cal_table_day_headings">Mon</th><th class="cal_table_day_headings">Tue</th><th class="cal_table_day_headings">Wed</th><th class="cal_table_day_headings">Thu</th><th class="cal_table_day_headings">Fri</th><th class="cal_table_day_headings">Sat</th><th class="cal_table_day_headings">Sun</th></tr>
+                
+                {% for week in cal %}
+                <tr>
+                    {% for day in week %}
                     <td class="cal_table_day">
                         {% if day.month == current_month %}
-                            {% if day not in unavailable_dates %}
-                                <form action="/spaces/{{space_info.id}}" method="POST">
-                                    <input class="day_button_available" type="submit" name="select_date_button" value=" {{ day.day }} ">              
-                                </form>
-                            {% else %}
-                                {{ day.day }}
-                                
-                                <!-- <form action="/spaces/1" method="POST">
-                                    <input class="day_button_available" type="submit" name="select_date_button" value=" {{ day.day }}">              
-                                </form> -->
-                            {% endif %}                        
+                        {% if day not in unavailable_dates %}
+                        <form action="/spaces/{{space_info.id}}" method="POST">
+                            <input class="day_button_available" type="submit" name="select_date_button" value=" {{ day.day }} ">              
+                        </form>
+                        {% else %}
+                        {{ day.day }}
+                        
+                        {% endif %}                        
                         {% endif %}
                     </td>
+                    {% endfor %}
+                </tr>
                 {% endfor %}
-            </tr>
-            {% endfor %}
-        </table>
+            </table>
+        </div>
+        
     </div>
-
-    
-    
-</body>
-</html>
+        
+    </body>
+    </html>

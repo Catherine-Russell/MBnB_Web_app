@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MBnB Home Page</title>
+    <title>Mbnb Home Page</title>
     <link rel="stylesheet" type="text/css" href="static/styles.css">
     <link rel="stylesheet" type="text/css" href="static/home.css">
 
-    <div class="navigation" align="right">
-        {% if user_id %}
-        <p><a href="/users/{{ user_id }}">My Profile</a></p>
-        <p><a href="/logout">Logout</a></p>
-        {% else %}
-        <p><a href="/login">Login</a></p>
-        <p><a href="/signup">Create an account</a></p>
-        {% endif %}
-    </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1 class="main-title">🏘️ MBnB</h1>
-    <h2>Book your next get away</h2>
+    
+    <div class="header">
+        <img src="/static/images/logo.jpeg" class="logo">
+        <h1 class="main-title">Mbnb</h1>
+        <div class="navigation" align="right">
+            {% if user_id %}
+                <a href="/users/{{ user_id }}" class="profile-link">My Profile</a>
+                <a href="/logout" class="logout-link">Logout</a>
+            {% else %}
+                <a href="/login" class="login-link">Login</a>
+                <a href="/signup" class="signup-link">Create an account</a>
+            {% endif %}
+        </div>
+    </div>
+    {% if session_active == True %}
+    <h2 align="center" class="subtitle">Book your next getaway!</h2>
+    {% else %}
+    <h2 align="center" class="subtitle">Log in to book your next getaway</h2>
+    {% endif %}
+
     {% for space in spaces %}
     <div class="space-card">
         <div class="space-details"><h2>{{space.name}}</h2>

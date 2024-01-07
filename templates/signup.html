@@ -4,9 +4,20 @@
         <meta charset="utf-8">
         <title>Create your MBnB account</title>
         <link rel="stylesheet" type="text/css" href="static/styles.css">
+        <link rel="stylesheet" type="text/css" href="static/signup.css">
+
     </head>
     <body>
-        <p><a href="/">Back to homepage</a></p>
+
+        <div class="header">
+            <img src="/static/images/logo.jpeg" class="logo">
+            <h1 class="main-title">Mbnb</h1>
+            <div class="navigation" align="right">
+                    <a href="/" class="home-link">Homepage</a>
+            </div>
+        </div>
+
+
         {% if user_is_logged_in %}
             <p data-testid="already-logged-in-message">
                 You are already logged in.
@@ -14,20 +25,22 @@
                 please <a href="/logout">log out</a> first.
             </p>
         {% else %}
+        <div class="signup-container">
+
             <h1>Sign up to MBnB</h1>
             <p>Enter the username and password you would like to use.</p>
             <p>Your password should be at least 8 characters long.</p>
             <p>Useful note: users cannot use a username already in use by another user.</p>
             <form action="/signup" method="post">
                 {% if errors %}
-                    <p data-testid="error-details">
-                        Your signup submission had the following errors:
-                    </p>
-                    <p><ul>
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul></p>
+                <p data-testid="error-details">
+                    Your signup submission had the following errors:
+                </p>
+                <p><ul>
+                    {% for error in errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul></p>
                 {% endif %}
                 <p>
                     <label for="username">Username: </label>
@@ -41,6 +54,8 @@
                     <input type="submit" value="Submit form">
                 </p>
             </form>
-        {% endif %}
-    </body>
-</html>
+            {% endif %}
+            <p>Already have an account? <a href="/login" class="login-link">Log in!</a></p>
+        </div>
+        </body>
+        </html>
