@@ -5,8 +5,15 @@ body {
     background-color: #f0f0f0;
     
 }
-
+.spaces-container {
+    width: 100%;
+    overflow-x: scroll;
+    display: inline-block;
+}
 .space-card {
+    overflow-x: scroll;
+    display: inline-block;
+    height: 500px;
     width: 500px;
     margin: 10px auto;
     background-color: #ffffff;

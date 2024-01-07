@@ -28,25 +28,24 @@
     {% else %}
     <h2 align="center" class="subtitle">Log in to book your next getaway</h2>
     {% endif %}
+    <div class="spaces-container">
 
-    {% for space in spaces %}
-    <div class="space-card">
-        <div class="space-details"><h2>{{space.name}}</h2>
-        <img src={{space.image_url}}>
-        <p>{{ space.area }}, {{ space.country }}</p>
-        <p>{{ space.max_guests }} guests</p>
-        <p>From £{{space.price}} per night</p>
-        <br>
-        {% if session_active == True %}
-        <form action="/" method="POST">
-            <button type="submit" name="book_now_button" value="{{space.id}}">Book Now!</button><br>
-        </form>
-        </div>
-        <br>
-    
-        {% endif %}
+        {% for space in spaces %}
+        <li class="space-card">
+            <div class="space-details"><h2>{{space.name}}</h2>
+                <img src={{space.image_url}}>
+                <p>{{ space.area }}, {{ space.country }}</p>
+                <p>{{ space.max_guests }} guests</p>
+                <p class="space-price">From £{{space.price}} per night</p>
+                {% if session_active == True %}
+                <form action="/" method="POST">
+                    <button type="submit" name="book_now_button" value="{{space.id}}">Book Now!</button>
+                </form>
+            </div>
+            
+            {% endif %}
+        </li>
+        {% endfor %}
     </div>
-    <br>
-    {% endfor %}
-</body>
-</html>
+    </body>
+    </html>
